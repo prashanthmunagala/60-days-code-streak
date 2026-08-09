@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #020617;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glassmorphism card utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 94, 54, 0.2);
+  box-shadow: 0 0 25px -5px rgba(255, 94, 54, 0.15);
+}
+
+.glass-pill {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Flame animation */
+@keyframes pulse-flame {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.6));
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 18px rgba(239, 68, 68, 0.9));
+  }
+}
+
+.animate-flame {
+  animation: pulse-flame 2s infinite ease-in-out;
+}
+
+/* Gradient Text */
+.gradient-text-orange {
+  background: linear-gradient(135deg, #FF7E47 0%, #FF3E11 50%, #FF9900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #A855F7 0%, #6366F1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-border-glow {
+  position: relative;
+}
+
+.gradient-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,94,54,0.6), rgba(124,58,237,0.4), rgba(59,130,246,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Mobile Frame specific container */
+.mobile-device-frame {
+  width: 390px;
+  height: 844px;
+  border-radius: 44px;
+  border: 12px solid #1e293b;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Simulated iPhone Notch / Dynamic Island */
+.mobile-device-notch {
+  width: 120px;
+  height: 28px;
+  background-color: #020617;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Code block styles */
+pre code {
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  line-height: 1.5;
+}
