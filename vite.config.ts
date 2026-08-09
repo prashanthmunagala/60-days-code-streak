@@ -3,5 +3,18 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/60-days-code-streak/',
+
+  server: {
+    host: 'localhost',
+    port: 3000,
+    strictPort: true,
+  },
+
+  preview: {
+    host: 'localhost',
+    port: 3000,
+    strictPort: true,
+  },
+
+  base: '/',
 })
